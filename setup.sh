@@ -1,4 +1,5 @@
 #!/bin/bash
+set -eux
 
 VERSION=1.10.0
 
