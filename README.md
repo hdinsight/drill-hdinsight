@@ -78,6 +78,9 @@ See [here] for more info on Drill and Azure Blob Storage.
 
 [here]: https://blogs.msdn.microsoft.com/data_otaku/2016/05/30/configuration-of-azure-blob-storage-aka-wasb-as-a-drill-data-source/
 
+### What cluster types are valid?
+The script supports only hadoop clusters. Other cluster types (Spark, Kafka, Storm, Secure Hadoop etc.) are not supported.
+
 
 
 
