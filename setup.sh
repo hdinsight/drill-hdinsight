@@ -1,6 +1,12 @@
 #!/bin/bash
 set -eux
 
+ISSUPPORTED=$(echo -e "import hdinsight_common.ClusterManifestParser as ClusterManifestParser\nprint ClusterManifestParser.parse_local_manifest().settings.get('enable_security') == 'false' and ClusterManifestParser.parse_local_manifest().settings.get('cluster_type') == 'hadoop'" | python) 
+if [[ "$ISSUPPORTED" != "True" ]]; then 
+  echo "Drill installation is only supported on hadoop cluster types. Other cluster types (Spark, Kafka, Secure Hadoop etc are not supported yet. Aborting." ; 
+  exit 1
+fi
+
 VERSION=1.10.0
 
 if [[ -n $1 ]]; then
